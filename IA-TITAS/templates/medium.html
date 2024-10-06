@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compilador Python</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Compilador Python</h1>
+    </header>
+
+    <main class="container">
+        <div class="card">
+            <h2>Enunciado</h2>
+            <div id="enunciadoDisplay">
+                ENUNCIADO
+            </div>
+            <h2>Editor de Código</h2>
+            <form id="codeForm" action="/run" method="post">
+                <textarea name="code" id="codeEditor" placeholder="Escreva seu código Python aqui..." maxlength="5000"></textarea>
+                <button type="submit">Executar</button>
+            </form>
+            <div class="output">
+                <h3>Saída:</h3>
+                <pre id="output"></pre>
+            </div>
+            <div class="ia-output">
+                <h3>Avaliação da IA:</h3>
+                <pre id="iaOutput"></pre>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('codeForm').onsubmit = async function(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+
+            const form = event.target;
+            const code = document.getElementById('codeEditor').value;
+
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: new URLSearchParams(new FormData(form))
+            });
+
+            const result = await response.json();
+
+            // Exibe a saída do código
+            document.getElementById('output').textContent = result.output;
+
+            // Exibe a avaliação da IA
+            const iaResponse = result.ia_response;
+            document.getElementById('iaOutput').textContent = `Nota: ${iaResponse.nota}\nSugestões: ${iaResponse.sugestao}`;
+        }
+    </script>
+</body>
+</html>
