@@ -7,16 +7,24 @@ from contextlib import redirect_stdout, redirect_stderr
 app = Flask(__name__)
 
 @app.route('/')
-def retorno():
+def index():
     return render_template('index.html')
 
-@app.route('/medio')
-def medio():
-    return render_template('medium.html')
+@app.route('/home')
+def home():
+    return render_template('home.html')
 
 @app.route('/facil')
-def facil():
+def medio():
     return render_template('easy.html')
+
+@app.route('/medio')
+def facil():
+    return render_template('medium.html')
+
+@app.route('/dificil')
+def dificil():
+    return render_template('hard.html')
 
 @app.route('/run', methods=['POST'])
 def run_code():
