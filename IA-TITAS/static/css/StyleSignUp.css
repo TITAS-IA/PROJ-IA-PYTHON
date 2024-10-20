@@ -1,0 +1,88 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    height: 100%;
+    background-color: #202020;
+}
+
+.sign-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+.signup-form {
+    background-color: #000;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+h1 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 24px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+label {
+    margin-bottom: 8px;
+    color: #fff;
+}
+input {
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ddd;
+    background-color: #202020;
+    color: #666;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+}
+
+input:focus {
+    background-color: #414040;
+    color: #000;
+}
+
+button {
+    padding: 12px;
+    background-color: #202020;
+    color: white;
+    border: none;
+    margin-top: 5px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #414040;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 16px;
+    color: #666;
+}
+
+.login-link a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+#error{
+    display: none;
+    text-align: center;
+}
