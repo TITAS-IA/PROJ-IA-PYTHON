@@ -62,11 +62,12 @@ h1 {
 form {
     display: flex;
     flex-direction: column;
+    width: 100%;
     height: 300px;
 }
 
 textarea#codeEditor {
-    flex-basis: 100%;
+    flex: auto;
     height: 100px;
     background-color: #333;
     color: #fff;
@@ -81,20 +82,21 @@ textarea#codeEditor {
 }
 
 button {
+    max-width: 500px;
+    align-self: center;
     background-color: #1f1f1f;
-    color: #ffffff;
-    border: 1px solid white;
+    color: #fff;
+    border: 1px solid #6e00d5;
     padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
     font-size: 1rem;
-    transition: 0.1s ease;
+    transition: 0.2s ease;
     margin-bottom: 20px;
 }
 
 button:hover {
-    background-color: white;
-    color: #333;
+    color: #6e00d5;
 }
 
 .output {
@@ -114,7 +116,7 @@ button:hover {
     border-radius: 4px;
 }
 
-.output h3, 
+.output h3,
 .ia-output h3 {
     margin: 0;
     font-size: 1.2rem;
@@ -130,7 +132,7 @@ pre#output {
 
 #enunciadoDisplay {
     width: 100%;
-    height: 200px;
+    min-height: 200px;
     background-color: #333;
     color: #fff;
     border: 1px solid #444;
@@ -141,7 +143,8 @@ pre#output {
     margin-bottom: 20px;
     outline: none;
     resize: none;
-                }
+}
+
 #output {
     width: 75%;
     text-align: left;

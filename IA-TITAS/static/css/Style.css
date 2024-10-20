@@ -4,6 +4,7 @@ body, html {
     box-sizing: border-box;
     font-family: Arial, sans-serif;
     line-height: 1.6;
+    background-color: #131414;
 }
 
 .container {
@@ -13,7 +14,6 @@ body, html {
 
 header {
     background-color: #161313;
-    padding: 1rem 0;
     display: flex;
 }
 
@@ -23,23 +23,26 @@ nav {
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 0px 10px 0px 10px;
 }
 
 nav ul {
     list-style: none;
     display: flex;
     padding: 0;
+    margin-right: 15px;
 }
 
 nav ul li {
-    margin-left: 15px;
+    margin-left: 25px;
 }
 
 nav a {
     text-decoration: none;
     padding: 15px;
+    margin-left: 15px;
     color: white;
+    text-shadow: 0 0 6px #6e00d5;
     font-size: 20px;
 }
 
@@ -57,7 +60,6 @@ nav li a::after{
     content: "";
     display: flex;
     position: relative;
-    left: 5px;
     height: 3px;
     width: 0px;
     background-color: #6e00d5;
@@ -65,7 +67,7 @@ nav li a::after{
 }
 
 a:hover::after{
-    width: 90%;
+    width: 100%;
 }
 
 .text-container {
@@ -73,7 +75,6 @@ a:hover::after{
     color: #fff;
     text-align: center;
     padding: 4rem 0;
-    box-shadow: 0px 2px 0px #6e00d5;
 }
 
 .text-container h1 {
@@ -103,18 +104,19 @@ a:hover::after{
 
 .btn-secondary {
     background-color: transparent;
-    color: #000;
+    color: #fff;
     border: 2px solid #000;
     transition: 200ms;
 }
 
 .btn-secondary:hover {
     background-color: black;
-    color: #fff;
+    color: #6e00d5;
 }
 
 .features {
-    background-color: #f8f9fa;
+    background-color: #131414;
+    color: white;
     padding: 4rem 0;
     text-align: center;
 }
@@ -126,9 +128,9 @@ a:hover::after{
 }
 
 .feature-card {
-    background-color: #fff;
+    background-color: #000;
     border-radius: 8px;
-    box-shadow: 1px 2px 6px #05050538;
+    box-shadow: 1px 2px 6px #53535338;
     margin-bottom: 2rem;
     padding: 2rem;
     width: 33%;
@@ -136,22 +138,26 @@ a:hover::after{
 }
 
 .feature-card:hover {
-    box-shadow: 1px 2px 6px #6e00d5;
+    box-shadow: 0px 2px 8px #6e00d5;
 }
 
 #start {
     text-align: center;
+    background-color: #000;
+    color: #6e00d5;
     padding: 4rem 0;
     margin-bottom: 12px;
     box-shadow: 4px 0px 6px #6e00d5;
 }
 
 #start a {
-    border: 2px solid;
+    border: 2px solid #fff;
 }
 
 footer {
-    background-color: #f8f9fa;
+    background-color: #131414;
+    color: #6e00d5;
+    text-shadow: 0 0 10px #6e00d5;
     text-align: center;
     padding: 1rem 0;
     font-size: 0.9rem;

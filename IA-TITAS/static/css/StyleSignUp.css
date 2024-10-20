@@ -33,7 +33,7 @@ form {
 }
 label {
     margin-bottom: 8px;
-    color: #fff;
+    color: #6e00d5;
 }
 input {
     padding: 10px;
@@ -54,7 +54,7 @@ input:focus {
 button {
     padding: 12px;
     background-color: #202020;
-    color: white;
+    color: #6e00d5;
     border: none;
     margin-top: 5px;
     border-radius: 4px;
@@ -64,7 +64,8 @@ button {
 }
 
 button:hover {
-    background-color: #414040;
+    background-color: #242323;
+    text-shadow: 0 0 7px #6e00d5;
 }
 
 .login-link {
@@ -74,7 +75,7 @@ button:hover {
 }
 
 .login-link a {
-    color: #fff;
+    color: #6e00d5;
     text-decoration: none;
 }
 
