@@ -1,42 +1,71 @@
-body,
-html {
+body, html {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: Arial, sans-serif;
     line-height: 1.6;
 }
 
 .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
+    margin: auto;
     padding: 0 20px;
 }
 
 header {
     background-color: #161313;
     padding: 1rem 0;
+    display: flex;
 }
 
 nav {
+    flex: auto;
     display: flex;
+    flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
+    padding: 10px;
 }
 
 nav ul {
     list-style: none;
-    padding: 0;
     display: flex;
+    padding: 0;
 }
 
 nav ul li {
-    margin-left: 20px;
+    margin-left: 15px;
 }
 
 nav a {
     text-decoration: none;
+    padding: 15px;
     color: white;
+    font-size: 20px;
+}
+
+nav li a:hover{
+    color: #6e00d5;
+}
+
+nav li a::before {
+    content: "";
+    display: flex;
+    height: 0px;
+}
+
+nav li a::after{
+    content: "";
+    display: flex;
+    position: relative;
+    left: 5px;
+    height: 3px;
+    width: 0px;
+    background-color: #6e00d5;
+    transition: .3s ease-in-out;
+}
+
+a:hover::after{
+    width: 90%;
 }
 
 .text-container {
@@ -44,6 +73,7 @@ nav a {
     color: #fff;
     text-align: center;
     padding: 4rem 0;
+    box-shadow: 0px 2px 0px #6e00d5;
 }
 
 .text-container h1 {
@@ -61,28 +91,26 @@ nav a {
 }
 
 .btn-primary {
-    background-color: #fff;
-    color: #000;
-    border: 2px solid #fff;
-    transition: 200ms ease-out;
-}
-
-.btn-primary:hover {
-    background-color: black;
-    color: white;
-    border-color: white;
-}
-
-.btn-secondary {
     background-color: transparent;
     color: #fff;
     border: 2px solid #fff;
     transition: 200ms;
 }
 
+.btn-primary:hover {
+    border-color: #6e00d5;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #000;
+    border: 2px solid #000;
+    transition: 200ms;
+}
+
 .btn-secondary:hover {
-    background-color: white;
-    color: black;
+    background-color: black;
+    color: #fff;
 }
 
 .features {
@@ -100,19 +128,25 @@ nav a {
 .feature-card {
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 2px 6px #05050538;
+    margin-bottom: 2rem;
     padding: 2rem;
-    margin: 1rem;
-    width: calc(33.333% - 2rem);
-    min-width: 250px;
+    width: 33%;
+    transition: .2s;
 }
 
-.cta {
+.feature-card:hover {
+    box-shadow: 1px 2px 6px #6e00d5;
+}
+
+#start {
     text-align: center;
     padding: 4rem 0;
+    margin-bottom: 12px;
+    box-shadow: 4px 0px 6px #6e00d5;
 }
 
-.cta a {
+#start a {
     border: 2px solid;
 }
 
@@ -123,9 +157,25 @@ footer {
     font-size: 0.9rem;
 }
 
+@media (max-width: 470px) {
+    nav {
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+
+    nav li {
+        flex-grow: 1;
+        flex-basis: 96.92px;
+    }
+
+    nav li a {
+        font-size: 16px;
+    }
+}
+
 @media (max-width: 768px) {
     .feature-card {
-        width: calc(50% - 2rem);
+        width: 50%;
     }
 }
 

@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compilador Python</title>
-    <link rel="stylesheet" href="../static/StyleQuestion.css">
-    
+    <title>TITÃS - AI</title>
+    <link rel="stylesheet" href="../static/css/StyleQuestion.css">
+
 </head>
+
 <body>
     <header>
         <h1>Compilador Python</h1>
@@ -20,7 +22,8 @@
             </div>
             <h2>Editor de Código</h2>
             <form id="codeForm" action="/run" method="post">
-                <textarea name="code" id="codeEditor" placeholder="Escreva seu código Python aqui..." maxlength="5000"></textarea>
+                <textarea name="code" id="codeEditor" placeholder="Escreva seu código Python aqui..."
+                    maxlength="5000"></textarea>
                 <button type="submit">Executar</button>
             </form>
             <div class="output">
@@ -35,7 +38,7 @@
     </main>
 
     <script>
-        document.getElementById('codeForm').onsubmit = async function(event) {
+        document.getElementById('codeForm').onsubmit = async function (event) {
             event.preventDefault(); // Impede o envio padrão do formulário
 
             const form = event.target;
@@ -57,4 +60,5 @@
         }
     </script>
 </body>
+
 </html>
