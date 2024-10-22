@@ -26,12 +26,12 @@
         <div class="signup-form">
             <h1>Crie sua conta</h1>
             <form action="#" method="POST">
-                <label for="name">Nome de usuário</label>
+                <label for="name">Nome de usuário<span style="color: red;">*</span> </label>
                 <input type="text" id="name" name="name" placeholder="Nickname" required>
 
-                <label for="password">Senha</label>
+                <label for="password">Senha<span style="color: red;">*</span></label>
                 <input type="password" id="password" name="password" placeholder="Ex: 123456" required>
-                <label for="confirm-password">Confirme a senha</label>
+                <label for="confirm-password">Confirme a senha<span style="color: red;">*</span></label>
                 <input type="password" id="confirm-password" name="confirm-password" placeholder="Ex: 123456" required>
 
                 <label for="show-password">
@@ -39,6 +39,7 @@
                 </label>
 
                 <div id="error">As senhas não são iguais. Verifique.</div>
+                
                 <button type="submit">Cadastrar</button>
             </form>
             <p class="login-link">Já tem uma conta? <a href="#">Faça login</a></p>
