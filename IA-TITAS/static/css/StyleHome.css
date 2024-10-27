@@ -2,19 +2,51 @@ body, html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+<<<<<<< HEAD
     font-family: Satoshi;
     line-height: 1.6;
 }
 
+=======
+    font-family: 'Satoshi-regular';
+    line-height: 1.6;
+}
+
+@font-face {
+    font-family: 'Satoshi-Light';
+    src: url('../fonts/Satoshi-Light.woff2') format('woff2'),
+         url('../fonts/Satoshi-Light.woff') format('woff'),
+         url('../fonts/Satoshi-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-display: swap;
+    font-style: normal; 
+  }
+
+@font-face {
+    font-family: 'Satoshi-regular';
+    src: url(../fonts/Satoshi-Regular.woff2) format('woff2'),
+        url(../fonts/Satoshi-Regular.woff) format('woff'),
+        url(../fonts/Satoshi-Regular.ttf) format('truetype');
+}
+
+
+>>>>>>> 12737b11d2f7a4ab0a104f9ac139d20f345cdf6b
 .container {
     margin: auto;
     padding: 0 20px;
 }
 
 header {
+<<<<<<< HEAD
     background-color: #161313;
     padding: 0 0;
     display: flex;
+=======
+    background-color: #111111;
+    padding: 0 ;
+    display: flex;
+    align-items: center;
+>>>>>>> 12737b11d2f7a4ab0a104f9ac139d20f345cdf6b
 }
 
 nav {
@@ -23,9 +55,12 @@ nav {
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
+<<<<<<< HEAD
     padding: 10px;
     margin-bottom: 0px;
     margin-top: -15px;
+=======
+>>>>>>> 12737b11d2f7a4ab0a104f9ac139d20f345cdf6b
 }
 
 nav ul {
@@ -38,14 +73,30 @@ nav ul {
 
 nav ul li {
     margin-left: 15px;
+<<<<<<< HEAD
     margin-right: 15px;
+=======
+    margin-right: 45px;
+>>>>>>> 12737b11d2f7a4ab0a104f9ac139d20f345cdf6b
 }
 
 nav a {
     text-decoration: none;
     padding: 15px;
+<<<<<<< HEAD
     color: white;
     font-size: 20px;
+=======
+    margin-left: 35px;
+    color: white;
+    font-size: 20px;
+    font-family:  'Satoshi-regular';
+}
+
+nav li a {
+    font-family: 'Satoshi-light';
+    margin-left: 0;
+>>>>>>> 12737b11d2f7a4ab0a104f9ac139d20f345cdf6b
 }
 
 nav li a:hover{
@@ -76,7 +127,10 @@ nav li a:hover::after{
     background-color: #000;
     color: #fff;
     text-align: center;
+<<<<<<< HEAD
     margin-top: -40px;
+=======
+>>>>>>> 12737b11d2f7a4ab0a104f9ac139d20f345cdf6b
     padding: 4rem 0;
 }
 
@@ -133,7 +187,11 @@ nav li a:hover::after{
 .feature-card {
     background-color: #fff;
     border-radius: 8px;
+<<<<<<< HEAD
     box-shadow: 0px 0px 6px #05050538;
+=======
+    box-shadow: 0px 0px 6px rgba(5, 5, 5, 0.22);
+>>>>>>> 12737b11d2f7a4ab0a104f9ac139d20f345cdf6b
     margin-bottom: 2rem;
     padding: 2rem;
     width: 33%;
@@ -141,7 +199,11 @@ nav li a:hover::after{
 }
 
 .feature-card:hover {
+<<<<<<< HEAD
     box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.582);
+=======
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+>>>>>>> 12737b11d2f7a4ab0a104f9ac139d20f345cdf6b
 }
 
 #start {
