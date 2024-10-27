@@ -1,33 +1,69 @@
-var Password = document.getElementById('password')
-var ConfirmPassword = document.getElementById('confirm-password')
-var Error = document.getElementById('error')
-var SubmitButton = document.querySelector('button[type="submit"]')
+const passwordInput = document.getElementById('password');
+const confirmPasswordInput = document.getElementById('confirm-password');
+const errorMessage = document.getElementById('error');
+const submitButton = document.querySelector('button[type="submit"]');
+const nicknameInput = document.getElementById('name');
+const showPasswordCheckbox = document.getElementById('show-password');
+const inputs = [nicknameInput, passwordInput, confirmPasswordInput];
 
 // Inicialmente, oculta a mensagem de erro
-Error.style.display = 'none'
+errorMessage.style.display = 'none';
 
-SubmitButton.addEventListener('click', function(event) {
+submitButton.addEventListener('click', function (event) {
     // Previne o envio do formulário
-    event.preventDefault()
+    event.preventDefault();
+
+    let isNicknameValid = false;
+    let arePasswordsFilled = false;
+    let doPasswordsMatch = false;
+
+    // Verifica se o nickname está vazio
+    if (nicknameInput.value.trim() === '') {
+        alert('Por favor, insira seu nome');
+    } else {
+        isNicknameValid = true;
+    }
+
+    // Verifica se as senhas estão vazias
+    if (passwordInput.value.trim() === '' || confirmPasswordInput.value.trim() === '') {
+        alert('Por favor, insira sua senha');
+    } else {
+        arePasswordsFilled = true;
+    }
 
     // Verifica se as senhas coincidem
-    if (Password.value !== ConfirmPassword.value) {
-        Error.style.display = 'block'
-        Error.style.color = 'red'
+    if (passwordInput.value !== confirmPasswordInput.value) {
+        errorMessage.style.display = 'block';
+        errorMessage.textContent = 'As senhas não coincidem.';
+        errorMessage.style.color = 'red';
     } else {
-        Error.style.display = 'none' // Oculta a mensagem de erro
-        window.location.href = 'home.html' // Redireciona para home.html
+        errorMessage.style.display = 'none'; // Oculta a mensagem de erro
+        doPasswordsMatch = true;
     }
-})
 
-var showPasswordCheckbox = document.getElementById('show-password')
-
-showPasswordCheckbox.addEventListener('change', function() {
-    if (showPasswordCheckbox.checked) {
-        Password.type = 'text'; // Muda o tipo para 'text' para mostrar a senha
-        ConfirmPassword.type = 'text'; // Também muda o tipo do campo de confirmação
-    } else {
-        Password.type = 'password'; // Volta para 'password' para ocultar a senha
-        ConfirmPassword.type = 'password'; // Também volta para 'password' no campo de confirmação
+    // Se tudo estiver correto, redireciona
+    if (isNicknameValid && arePasswordsFilled && doPasswordsMatch) {
+        window.location.href = 'home.html';
     }
+});
+
+// Função para mudar o foco para o próximo campo ao pressionar "Enter"
+inputs.forEach((input, index) => {
+    input.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Prevenir envio do formulário
+            if (index < inputs.length - 1) {
+                inputs[index + 1].focus(); // Vai para o próximo input
+            } else {
+                submitButton.click(); // Aciona o botão de envio no último input
+            }
+        }
+    });
+});
+
+// Função para mostrar/ocultar a senha
+showPasswordCheckbox.addEventListener('change', function () {
+    const passwordType = showPasswordCheckbox.checked ? 'text' : 'password';
+    passwordInput.type = passwordType;
+    confirmPasswordInput.type = passwordType;
 });

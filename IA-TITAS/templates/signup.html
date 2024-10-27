@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/Style.css">
+    <link rel="stylesheet" href="../static/css/StyleHome.css">
     <link rel="stylesheet" href="../static/css/StyleSignUp.css">
     <title>TITÃS - AI</title>
 </head>
@@ -12,12 +12,12 @@
 <body>
 
     <header>
-        <nav class="container">
-            <a href="#" style="font-size: 1.5rem; font-weight: bold;">TITÃS - AI</a>
+        <nav>
+            <a href="home.html" style="font-size: 1.6rem; font-weight: bold;">TITÃS - AI</a>
             <ul>
-                <li><a href="/signup">Cadastro</a></li>
-                <li><a href="/login">Login</a></li>
-                <li><a href="/sobre">Sobre</a></li>
+                <li><a href="signup.html">Cadastro</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="#">Sobre</a></li>
             </ul>
         </nav>
     </header>
@@ -26,12 +26,12 @@
         <div class="signup-form">
             <h1>Crie sua conta</h1>
             <form action="#" method="POST">
-                <label for="name">Nome de usuário</label>
+                <label for="name">Nome de usuário<span style="color: red;">*</span> </label>
                 <input type="text" id="name" name="name" placeholder="Nickname" required>
 
-                <label for="password">Senha</label>
+                <label for="password">Senha<span style="color: red;">*</span></label>
                 <input type="password" id="password" name="password" placeholder="Ex: 123456" required>
-                <label for="confirm-password">Confirme a senha</label>
+                <label for="confirm-password">Confirme a senha<span style="color: red;">*</span></label>
                 <input type="password" id="confirm-password" name="confirm-password" placeholder="Ex: 123456" required>
 
                 <label for="show-password">
@@ -39,6 +39,7 @@
                 </label>
 
                 <div id="error">As senhas não são iguais. Verifique.</div>
+                
                 <button type="submit">Cadastrar</button>
             </form>
             <p class="login-link">Já tem uma conta? <a href="#">Faça login</a></p>

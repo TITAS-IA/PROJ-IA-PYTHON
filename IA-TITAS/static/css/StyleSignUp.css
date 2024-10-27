@@ -1,10 +1,43 @@
 body, html {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Satoshi-regular';
     line-height: 1.6;
     height: 100%;
-    background-color: #202020;
+    background: linear-gradient(45deg, #fff, #202020);
+    background-size: 300% 300%;
+    animation: animation 15s alternate infinite ease;
+}
+
+@font-face {
+    font-family: 'Satoshi-Light';
+    src: url('../fonts/Satoshi-Light.woff2') format('woff2'),
+         url('../fonts/Satoshi-Light.woff') format('woff'),
+         url('../fonts/Satoshi-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-display: swap;
+    font-style: normal; 
+  }
+
+@font-face {
+    font-family: 'Satoshi-regular';
+    src: url(../fonts/Satoshi-Regular.woff2) format('woff2'),
+        url(../fonts/Satoshi-Regular.woff) format('woff'),
+        url(../fonts/Satoshi-Regular.ttf) format('truetype');
+}
+
+@keyframes animation {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    50% {
+        background-position: 100% 0%;
+    }
+
+    100% {
+        background-position: 0% 0%;
+    }
 }
 
 .sign-container {
@@ -15,31 +48,33 @@ body, html {
     padding: 20px;
 }
 .signup-form {
-    background-color: #000;
+    background-color: #fff;
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 400px;
+    flex-basis: 400px;
 }
-h1 {
+
+.sign-form h1 {
     text-align: center;
-    color: #fff;
+    color: #000;
     margin-bottom: 24px;
 }
 form {
     display: flex;
     flex-direction: column;
 }
+
 label {
     margin-bottom: 8px;
-    color: #fff;
+    color: #000;
 }
+
 input {
     padding: 10px;
     margin-bottom: 16px;
-    border: 1px solid #ddd;
-    background-color: #202020;
+    border: 1px solid #c2cBd0;
     color: #666;
     border-radius: 4px;
     font-size: 16px;
@@ -47,15 +82,15 @@ input {
 }
 
 input:focus {
-    background-color: #414040;
+    background-color: #f0efef;
     color: #000;
 }
 
 button {
     padding: 12px;
-    background-color: #202020;
-    color: white;
-    border: none;
+    background-color: black;
+    color: #fff;
+    border: 1px solid black;
     margin-top: 5px;
     border-radius: 4px;
     font-size: 16px;
@@ -64,7 +99,8 @@ button {
 }
 
 button:hover {
-    background-color: #414040;
+    background-color: #fff;
+    color: #000;
 }
 
 .login-link {
@@ -74,7 +110,7 @@ button:hover {
 }
 
 .login-link a {
-    color: #fff;
+    color: #000;
     text-decoration: none;
 }
 
