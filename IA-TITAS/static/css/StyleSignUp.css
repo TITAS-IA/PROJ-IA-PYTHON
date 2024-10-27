@@ -1,11 +1,7 @@
 body, html {
     margin: 0;
     padding: 0;
-<<<<<<< HEAD
-    font-family: Satoshi;
-=======
     font-family: 'Satoshi-regular';
->>>>>>> 12737b11d2f7a4ab0a104f9ac139d20f345cdf6b
     line-height: 1.6;
     height: 100%;
     background: linear-gradient(45deg, #fff, #202020);
@@ -13,8 +9,6 @@ body, html {
     animation: animation 15s alternate infinite ease;
 }
 
-<<<<<<< HEAD
-=======
 @font-face {
     font-family: 'Satoshi-Light';
     src: url('../fonts/Satoshi-Light.woff2') format('woff2'),
@@ -32,7 +26,6 @@ body, html {
         url(../fonts/Satoshi-Regular.ttf) format('truetype');
 }
 
->>>>>>> 12737b11d2f7a4ab0a104f9ac139d20f345cdf6b
 @keyframes animation {
     0% {
         background-position: 0% 0%;

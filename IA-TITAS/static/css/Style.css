@@ -2,9 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-<<<<<<< HEAD
-    font-family: Satoshi;
-=======
     font-family: 'Satoshi-regular';
 }
 
@@ -56,5 +53,4 @@ body {
 
 #btn {
     
->>>>>>> 12737b11d2f7a4ab0a104f9ac139d20f345cdf6b
 }
