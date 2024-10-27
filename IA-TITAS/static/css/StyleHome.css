@@ -2,9 +2,27 @@ body, html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Satoshi;
+    font-family: 'Satoshi-light';
     line-height: 1.6;
 }
+
+@font-face {
+    font-family: 'Satoshi-Light';
+    src: url('../fonts/Satoshi-Light.woff2') format('woff2'),
+         url('../fonts/Satoshi-Light.woff') format('woff'),
+         url('../fonts/Satoshi-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-display: swap;
+    font-style: normal; 
+  }
+
+@font-face {
+    font-family: 'Satoshi-regular';
+    src: url(../fonts/Satoshi-Regular.woff2) format('woff2'),
+        url(../fonts/Satoshi-Regular.woff) format('woff'),
+        url(../fonts/Satoshi-Regular.ttf) format('truetype');
+}
+
 
 .container {
     margin: auto;
@@ -46,6 +64,11 @@ nav a {
     padding: 15px;
     color: white;
     font-size: 20px;
+    font-family:  'Satoshi-regular';
+}
+
+nav li a {
+    font-family: 'Satoshi-light';
 }
 
 nav li a:hover{
