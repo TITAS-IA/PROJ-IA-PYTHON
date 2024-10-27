@@ -2,5 +2,55 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Satoshi, sans-serif;
+    font-family: 'Satoshi-regular';
+}
+
+@font-face {
+    font-family: 'Satoshi-Light';
+    src: url('../fonts/Satoshi-Light.woff2') format('woff2'),
+         url('../fonts/Satoshi-Light.woff') format('woff'),
+         url('../fonts/Satoshi-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-display: swap;
+    font-style: normal; 
+  }
+
+@font-face {
+    font-family: 'Satoshi-regular';
+    src: url(../fonts/Satoshi-Regular.woff2) format('woff2'),
+        url(../fonts/Satoshi-Regular.woff) format('woff'),
+        url(../fonts/Satoshi-Regular.ttf) format('truetype');
+}
+
+body {
+    background-color: #1C1B29;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row nowrap;
+}
+
+#starter{
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    padding: 15px;
+    border-radius: 25px;
+    height: 250px;
+}
+
+#text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    line-height: 3rem;
+    font-weight: bold;
+}
+
+#btn {
+    
 }
