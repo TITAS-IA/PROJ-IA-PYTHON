@@ -9,13 +9,25 @@
 </head>
 
 <body>
-    <div id="starter">
-        <div id="text">
-            <h1>Seja muito bem vindo ao site da monitoria TITÃS!</h1>
-            <p>Prepare-se para um mundo de aprendizado nunca visto antes!</p>
+    <div class="container">
+        <div id="starter" class="fade-in">
+            <div class="logo">
+                <span class="logo-text">TITÃS</span>
+                <span class="logo-ai">AI</span>
+            </div>
+            <div id="text">
+                <h1 class="slide-up">Seja muito bem vindo ao site da monitoria TITÃS!</h1>
+                <p class="slide-up-delay">Prepare-se para um mundo de aprendizado nunca visto antes!</p>
+            </div>
+            <button id="btn" class="pulse">
+                <span>Começar Jornada</span>
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
+                </svg>
+            </button>
         </div>
-        <button id="btn">Entrar</button>
     </div>
 </body>
 
+<script src="../static/js/script.js"></script>
 </html>
