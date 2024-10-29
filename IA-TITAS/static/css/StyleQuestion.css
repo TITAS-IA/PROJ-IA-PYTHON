@@ -99,6 +99,9 @@ textarea#codeEditor {
 
 button {
     background-color: #1f1f1f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: #ffffff;
     border: 1px solid white;
     padding: 10px 20px;
@@ -112,6 +115,10 @@ button {
 button:hover {
     background-color: white;
     color: #333;
+}
+
+button i {
+    margin-left: 5px;
 }
 
 .output {

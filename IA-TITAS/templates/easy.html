@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TITÃS - AI</title>
     <link rel="stylesheet" href="../static/css/StyleQuestion.css">
-
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
@@ -22,9 +22,8 @@
             </div>
             <h2>Editor de Código</h2>
             <form id="codeForm" action="/run" method="post">
-                <textarea name="code" id="codeEditor" placeholder="Escreva seu código Python aqui..."
-                    maxlength="5000"></textarea>
-                <button type="submit">Executar</button>
+                <textarea name="code" id="codeEditor" placeholder="Escreva seu código aqui"></textarea>
+                <button type="submit">Enviar<i class='bx bx-send'></i></button>
             </form>
             <div class="output">
                 <h3>Saída:</h3>
