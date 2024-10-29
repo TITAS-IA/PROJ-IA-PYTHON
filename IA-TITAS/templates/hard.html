@@ -1,14 +1,181 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TITÃS - AI</title>
-    <link rel="stylesheet" href="../static/css/StyleQuestion.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/monokai.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/show-hint.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: 'Satoshi-regular';
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: linear-gradient(45deg, #011c3b, #2c003e, #000) no-repeat;
+            background-size: 300% 300%;
+            animation: animation 15s alternate infinite ease;
+        }
 
+        @font-face {
+            font-family: 'Satoshi-Light';
+            src: url('../fonts/Satoshi-Light.woff2') format('woff2'),
+                 url('../fonts/Satoshi-Light.woff') format('woff'),
+                 url('../fonts/Satoshi-Light.ttf') format('truetype');
+            font-weight: 300;
+            font-display: swap;
+            font-style: normal; 
+        }
+
+        @font-face {
+            font-family: 'Satoshi-regular';
+            src: url(../fonts/Satoshi-Regular.woff2) format('woff2'),
+                url(../fonts/Satoshi-Regular.woff) format('woff'),
+                url(../fonts/Satoshi-Regular.ttf) format('truetype');
+        }
+
+        @keyframes animation {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 0%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #1f1f1f;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .card {
+            background-color: #1f1f1f;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            flex-basis: 800px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .editor-wrapper {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .CodeMirror {
+            height: 300px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1rem;
+        }
+
+        button {
+            background-color: #1f1f1f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            border: 1px solid white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: 0.1s ease;
+            margin-bottom: 20px;
+        }
+
+        button:hover {
+            background-color: white;
+            color: #333;
+        }
+
+        .output, .ia-output {
+            width: 100%;
+            text-align: left;
+            background-color: #2a2a2a;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        .output h3, .ia-output h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: #ffffff;
+        }
+
+        pre#output, pre#iaOutput {
+            margin-top: 10px;
+            color: #fff;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        #enunciadoDisplay {
+            width: 100%;
+            height: 200px;
+            background-color: #333;
+            color: #fff;
+            border: 1px solid #444;
+            border-radius: 4px;
+            padding: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            outline: none;
+            resize: none;
+        }
+
+        .CodeMirror-hints {
+            position: absolute;
+            z-index: 10;
+            overflow: hidden;
+            list-style: none;
+            margin: 0;
+            padding: 2px;
+            border-radius: 3px;
+            border: 1px solid #4d4d4d;
+            background: #2d2d2d;
+            color: #fff;
+            font-family: monospace;
+            max-height: 20em;
+            overflow-y: auto;
+        }
+
+        .CodeMirror-hint {
+            margin: 0;
+            padding: 3px 8px;
+            border-radius: 2px;
+            white-space: pre;
+            cursor: pointer;
+        }
+
+        li.CodeMirror-hint-active {
+            background: #4d4d4d;
+        }
+    </style>
 </head>
-
 <body>
     <header>
         <h1>Compilador Python</h1>
@@ -22,8 +189,9 @@
             </div>
             <h2>Editor de Código</h2>
             <form id="codeForm" action="/run" method="post">
-                <textarea name="code" id="codeEditor" placeholder="Escreva seu código Python aqui..."
-                    maxlength="5000"></textarea>
+                <div class="editor-wrapper">
+                    <textarea name="code" id="codeEditor"></textarea>
+                </div>
                 <button type="submit">Executar</button>
             </form>
             <div class="output">
@@ -37,28 +205,103 @@
         </div>
     </main>
 
+    <!-- Scripts do CodeMirror -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/python/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/edit/matchbrackets.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/edit/closebrackets.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/show-hint.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/python-hint.min.js"></script>
     <script>
+        // Palavras-chave do Python
+        const pythonKeywords = [
+            'and', 'as', 'assert', 'break', 'class', 'continue', 'def', 'del', 'elif',
+            'else', 'except', 'False', 'finally', 'for', 'from', 'global', 'if', 'import',
+            'in', 'is', 'lambda', 'None', 'nonlocal', 'not', 'or', 'pass', 'raise',
+            'return', 'True', 'try', 'while', 'with', 'yield', 'print', 'len', 'range',
+            'list', 'dict', 'set', 'tuple', 'str', 'int', 'float', 'bool', 'input',
+            'sum', 'max', 'min', 'sorted', 'reversed', 'enumerate', 'zip', 'filter', 'map'
+        ];
+
+        // Função para criar hints personalizados
+        function createCustomHints(cm) {
+            const cur = cm.getCursor();
+            const token = cm.getTokenAt(cur);
+            const start = token.start;
+            const end = cur.ch;
+            const line = cur.line;
+            
+            const list = pythonKeywords.filter(word => 
+                word.toLowerCase().startsWith(token.string.toLowerCase())
+            ).sort();
+
+            return {
+                list: list,
+                from: CodeMirror.Pos(line, start),
+                to: CodeMirror.Pos(line, end)
+            };
+        }
+
+        // Inicialização do editor
+        const editor = CodeMirror.fromTextArea(document.getElementById('codeEditor'), {
+            mode: 'python',
+            theme: 'monokai',
+            lineNumbers: true,
+            autoCloseBrackets: true,
+            matchBrackets: true,
+            indentUnit: 4,
+            tabSize: 4,
+            indentWithTabs: true,
+            extraKeys: {
+                "Ctrl-Space": "autocomplete",
+                "Tab": function(cm) {
+                    if (cm.somethingSelected()) {
+                        cm.indentSelection("add");
+                    } else {
+                        cm.replaceSelection("    ", "end");
+                    }
+                }
+            },
+            hintOptions: {
+                hint: createCustomHints,
+                completeSingle: false,
+                closeOnUnfocus: false
+            },
+            lineWrapping: true,
+            styleActiveLine: true,
+        });
+
+        // Ativar autocompletar ao digitar
+        editor.on('inputRead', function(editor, input) {
+            const cur = editor.getCursor();
+            const token = editor.getTokenAt(cur);
+            
+            if (token.string.length >= 2 && 
+                !token.string.match(/^\d+$/) && 
+                !/[\s\n]/.test(input.text[0])) {
+                CodeMirror.commands.autocomplete(editor, null, { completeSingle: false });
+            }
+        });
+
+        // Manipulador do formulário
         document.getElementById('codeForm').onsubmit = async function (event) {
-            event.preventDefault(); // Impede o envio padrão do formulário
+            event.preventDefault();
 
-            const form = event.target;
-            const code = document.getElementById('codeEditor').value;
+            const code = editor.getValue();
+            const formData = new FormData();
+            formData.append('code', code);
 
-            const response = await fetch(form.action, {
-                method: form.method,
-                body: new URLSearchParams(new FormData(form))
+            const response = await fetch('/run', {
+                method: 'POST',
+                body: formData
             });
 
             const result = await response.json();
 
-            // Exibe a saída do código
             document.getElementById('output').textContent = result.output;
-
-            // Exibe a avaliação da IA
             const iaResponse = result.ia_response;
             document.getElementById('iaOutput').textContent = `Nota: ${iaResponse.nota}\nSugestões: ${iaResponse.sugestao}`;
-        }
+        };
     </script>
 </body>
-
 </html>
