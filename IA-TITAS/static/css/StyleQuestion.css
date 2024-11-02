@@ -13,12 +13,12 @@ body {
 @font-face {
     font-family: 'Satoshi-Light';
     src: url('../fonts/Satoshi-Light.woff2') format('woff2'),
-         url('../fonts/Satoshi-Light.woff') format('woff'),
-         url('../fonts/Satoshi-Light.ttf') format('truetype');
+        url('../fonts/Satoshi-Light.woff') format('woff'),
+        url('../fonts/Satoshi-Light.ttf') format('truetype');
     font-weight: 300;
     font-display: swap;
-    font-style: normal; 
-  }
+    font-style: normal;
+}
 
 @font-face {
     font-family: 'Satoshi-regular';
@@ -68,7 +68,6 @@ h1 {
     text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 .card h2 {
@@ -82,9 +81,27 @@ form {
     height: 300px;
 }
 
+
+#enunciadoDisplay {
+    width: 100%;
+    height: 200px;
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #444;
+    border-radius: 4px;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    outline: none;
+    resize: none;
+    align-self: center;
+}
+
 textarea#codeEditor {
     flex-basis: 100%;
     height: 100px;
+    align-self: stretch;
     background-color: #333;
     color: #fff;
     border: 1px solid #444;
@@ -99,9 +116,13 @@ textarea#codeEditor {
 
 button {
     background-color: #1f1f1f;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: #ffffff;
     border: 1px solid white;
-    padding: 10px 20px;
+    padding: 10px 40px;
     border-radius: 4px;
     cursor: pointer;
     font-size: 1rem;
@@ -112,6 +133,10 @@ button {
 button:hover {
     background-color: white;
     color: #333;
+}
+
+button i {
+    margin-left: 5px;
 }
 
 .output {
@@ -131,7 +156,7 @@ button:hover {
     border-radius: 4px;
 }
 
-.output h3, 
+.output h3,
 .ia-output h3 {
     margin: 0;
     font-size: 1.2rem;
@@ -145,20 +170,6 @@ pre#output {
     word-wrap: break-word;
 }
 
-#enunciadoDisplay {
-    width: 100%;
-    height: 200px;
-    background-color: #333;
-    color: #fff;
-    border: 1px solid #444;
-    border-radius: 4px;
-    padding: 10px;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 1rem;
-    margin-bottom: 20px;
-    outline: none;
-    resize: none;
-                }
 #output {
     width: 75%;
     text-align: left;

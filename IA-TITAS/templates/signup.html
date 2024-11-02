@@ -11,13 +11,16 @@
 
 <body>
 
-    <header>
+    <header class="fade-in">
         <nav>
-            <a href="home.html" style="font-size: 1.6rem; font-weight: bold;">TITÃS - AI</a>
+            <a href="home.html" class="logo">
+                <span class="logo-text">TITÃS</span>
+                <span class="logo-ai">AI</span>
+            </a>
             <ul>
-                <li><a href="signup.html">Cadastro</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="#">Sobre</a></li>
+                <li><a href="signup.html" class="slide-up">Cadastro</a></li>
+                <li><a href="login.html" class="slide-up">Login</a></li>
+                <li><a href="#" class="slide-up">Sobre</a></li>
             </ul>
         </nav>
     </header>
@@ -27,17 +30,17 @@
             <h1>Crie sua conta</h1>
             <form action="#" method="POST">
                 <label for="name">Nome de usuário<span style="color: red;">*</span> </label>
-                <input type="text" id="name" name="name" placeholder="Nickname" required>
+                <input type="text" id="name" name="name" placeholder="Nome de usuário" required>
 
                 <label for="password">Senha<span style="color: red;">*</span></label>
                 <input type="password" id="password" name="password" placeholder="Ex: 123456" required>
                 <label for="confirm-password">Confirme a senha<span style="color: red;">*</span></label>
                 <input type="password" id="confirm-password" name="confirm-password" placeholder="Ex: 123456" required>
 
-                <label for="show-password">
+                <label id="check" for="show-password">
                     <input type="checkbox" id="show-password"> Mostrar senha
                 </label>
-
+                
                 <div id="error">As senhas não são iguais. Verifique.</div>
                 
                 <button type="submit">Cadastrar</button>
