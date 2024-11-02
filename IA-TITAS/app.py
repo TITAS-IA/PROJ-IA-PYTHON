@@ -36,28 +36,28 @@ def send_message():
 def index():
     return render_template('index.html')  # Renderiza o template de index
 
-# Rotas de autenticação (login e cadastro)
-
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    if request.method == 'POST':
-        # Lógica de login vai aqui (não deixe os "..." no código real)
-        pass
-        
-    return render_template('login.html')  # Renderiza o template de login
-
-@app.route('/cadastro', methods=['GET', 'POST'])
-def cadastro():
-    if request.method == 'POST':
-        # Lógica de cadastro vai aqui (não deixe os "..." no código real)
-        pass
-    
-    return render_template('cadastro.html')  # Renderiza o template de cadastro
-
 # Rota para a página de início (visualização de questões e outras informações)
 @app.route('/inicio')
 def inicio():
-    return render_template('inicio.html')  # Renderiza o template de início
+    return render_template('home.html')  # Renderiza o template de início
+
+# Rotas de autenticação (login e cadastro)
+
+@app.route('/cadastro', methods=['GET', 'POST'])
+def cadastro():
+    '''if request.method == 'POST':
+        # Lógica de cadastro vai aqui (não deixe os "..." no código real)
+        pass'''
+    
+    return render_template('signup.html')  # Renderiza o template de cadastro
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    '''if request.method == 'POST':
+        # Lógica de login vai aqui (não deixe os "..." no código real)
+        pass'''
+        
+    return render_template('login.html')  # Renderiza o template de login
 
 # Inicia o servidor Flask
 if __name__ == '__main__':

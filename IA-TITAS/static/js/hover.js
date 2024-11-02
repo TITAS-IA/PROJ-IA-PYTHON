@@ -9,7 +9,8 @@ btn.addEventListener('mousemove', (e) => {
     btn.style.setProperty('--y', `${y}px`)
 })
 
-// Adicionar efeito de clique
+// Adicionar efeito de clique e redirecionamento
 btn.addEventListener('click', () => {
     btn.classList.add('clicked')
+    window.location.href = '/inicio'
 })
